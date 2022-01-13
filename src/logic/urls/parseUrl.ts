@@ -9,7 +9,7 @@ export const parseUrl = (url: string) => {
   const [originAndPath, queryParamsString] = url.split('?');
 
   // parse the query params
-  const queryParams = parseQueryParams(queryParamsString);
+  const queryParams = parseQueryParams(queryParamsString ?? '');
 
   // split the domain from path
   const origin = getOriginFromUrl(originAndPath);

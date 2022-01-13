@@ -50,4 +50,13 @@ describe('updateUrl', () => {
     });
     expect(url).toEqual('https://example.com/jobs/123/learn-more?variant=b&focus=title');
   });
+  it('should be able to update a url without query params', () => {
+    const url = updateUrl({
+      from: 'https://example.com/jobs/123/check-on-status',
+      with: {
+        path: '../check-out', // notice that this is a relative path
+      },
+    });
+    expect(url).toEqual('https://example.com/jobs/123/check-out');
+  });
 });
