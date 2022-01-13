@@ -1,6 +1,6 @@
 {
   "name": "url-fns",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easily define and manipulate urls with relative paths, query parameters, and path parameters",
   "author": "UladKasach @uladkasach",
   "license": "MIT",

@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/uladkasach/url-fns/compare/v1.0.1...v1.0.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* **parse:** ensure urls without query strings are parseable ([d566b56](https://www.github.com/uladkasach/url-fns/commit/d566b560031a76e45798de43a4d4c2c84882c378))
+
 ### [1.0.1](https://www.github.com/uladkasach/url-fns/compare/v1.0.0...v1.0.1) (2022-01-11)
 
 
