@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/uladkasach/url-fns/compare/v1.0.2...v1.0.3) (2022-01-21)
+
+
+### Bug Fixes
+
+* **queryparams:** ensure to encode and decode special chars in query params ([a4f4045](https://www.github.com/uladkasach/url-fns/commit/a4f4045b497e9166e9701955244e31f18548adab))
+
 ### [1.0.2](https://www.github.com/uladkasach/url-fns/compare/v1.0.1...v1.0.2) (2022-01-13)
 
 
