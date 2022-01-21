@@ -10,7 +10,7 @@
  * ```
  */
 export const stringifyQueryParams = (queryParams: Record<string, string | undefined>) => {
-  const queryParamsWithoutUndefinedValues = JSON.parse(JSON.stringify(queryParams));
-  const parts = Object.entries(queryParamsWithoutUndefinedValues).map(([key, value]) => `${key}=${value}`);
+  const queryParamsWithoutUndefinedValues: Record<string, string> = JSON.parse(JSON.stringify(queryParams));
+  const parts = Object.entries(queryParamsWithoutUndefinedValues).map(([key, value]) => `${key}=${encodeURIComponent(value)}`);
   return parts.join('&');
 };

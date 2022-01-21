@@ -10,10 +10,10 @@
  * ```
  */
 export const parseQueryParams = (queryParamsString: string) => {
-  const keyEqualsValuesCombinations = queryParamsString.split('&');
+  const keyEqualsValuesCombinations = queryParamsString.split('&').filter((str) => !!str);
   const queryParamEntries = keyEqualsValuesCombinations.map((combination) => {
     const [name, value] = combination.split('=');
-    return [name, value];
+    return [name, decodeURIComponent(value)];
   });
   const queryParams = Object.fromEntries(queryParamEntries);
   return queryParams;
