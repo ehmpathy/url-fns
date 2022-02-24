@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.4](https://www.github.com/uladkasach/url-fns/compare/v1.0.3...v1.0.4) (2022-02-24)
+
+
+### Bug Fixes
+
+* **queryparams:** correctly decode  aliased spaces ([009f40d](https://www.github.com/uladkasach/url-fns/commit/009f40d99a1980b6e9196a29c47729a4ceed5b54))
+
 ### [1.0.3](https://www.github.com/uladkasach/url-fns/compare/v1.0.2...v1.0.3) (2022-01-21)
 
 
