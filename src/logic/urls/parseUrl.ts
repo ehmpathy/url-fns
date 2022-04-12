@@ -5,8 +5,11 @@ import { getOriginFromUrl } from './getOriginFromUrl';
  * reads a url string and parses it into path and query params
  */
 export const parseUrl = (url: string) => {
+  // grab the hash, if one exists; do this first since hashes are at the end of urls (https://stackoverflow.com/a/34772568/3068233)
+  const [beforeHash, hash] = url.split('#');
+
   // split url into path and query params
-  const [originAndPath, queryParamsString] = url.split('?');
+  const [originAndPath, queryParamsString] = beforeHash.split('?');
 
   // parse the query params
   const queryParams = parseQueryParams(queryParamsString ?? '');
@@ -15,10 +18,11 @@ export const parseUrl = (url: string) => {
   const origin = getOriginFromUrl(originAndPath);
   const path = origin ? originAndPath.replace(origin, '') : originAndPath;
 
-  // return both parts
+  // return all parts
   return {
     origin,
     path,
     queryParams,
+    hash: hash ?? null, // default to null
   };
 };
