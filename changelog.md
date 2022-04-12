@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/uladkasach/url-fns/compare/v1.0.4...v1.1.0) (2022-04-12)
+
+
+### Features
+
+* **hash:** support hashes ([70ee1aa](https://www.github.com/uladkasach/url-fns/commit/70ee1aaa12a98dba81f22759eabc593304fe6bbe))
+
 ### [1.0.4](https://www.github.com/uladkasach/url-fns/compare/v1.0.3...v1.0.4) (2022-02-24)
 
 
