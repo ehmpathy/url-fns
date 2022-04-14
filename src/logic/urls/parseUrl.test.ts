@@ -29,4 +29,11 @@ describe('parseUrl', () => {
     expect(queryParams).toEqual({});
     expect(hash).toEqual('open-menu');
   });
+  it('should correctly parse url - even if origin has a port defined', () => {
+    const { origin, path, queryParams, hash } = parseUrl('https://localhost.example.com:3443/get-quotes/for/junk-removal#open-menu');
+    expect(origin).toEqual('https://localhost.example.com:3443');
+    expect(path).toEqual('/get-quotes/for/junk-removal');
+    expect(queryParams).toEqual({});
+    expect(hash).toEqual('open-menu');
+  });
 });
