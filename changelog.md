@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/uladkasach/url-fns/compare/v1.1.0...v1.1.1) (2022-04-14)
+
+
+### Bug Fixes
+
+* **origin:** support ports defined in origins ([ecdbd57](https://www.github.com/uladkasach/url-fns/commit/ecdbd5788acc278467a07b4528e4d8be595d1058))
+
 ## [1.1.0](https://www.github.com/uladkasach/url-fns/compare/v1.0.4...v1.1.0) (2022-04-12)
 
 
