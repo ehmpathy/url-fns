@@ -17,6 +17,12 @@ export const evaluateRelativePath = ({ from, to }: { from: string; to: string })
 
   // now evaluate the url with the Url object
   const placeholderOrigin = 'https://test.com'; // an origin is required to work w/ the URL class
-  const evaluatedUrl = new URL(`${placeholderOrigin}/${removeForwardSlashPrefix(from)}/${removeForwardSlashPrefix(to)}`);
+  const combinedAbsoluteAndRelativePathExpression = [
+    removeForwardSlashPrefix(from), // the absolute path upon which the relative path is applied
+    removeForwardSlashPrefix(to), // the relative path to apply
+  ]
+    .filter((val) => !!val) // filter out empty strings (for example, if absolute path was root)
+    .join('/'); // join the absolute and relative paths together
+  const evaluatedUrl = new URL(`${placeholderOrigin}/${combinedAbsoluteAndRelativePathExpression}`);
   return evaluatedUrl.pathname;
 };

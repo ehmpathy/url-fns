@@ -9,4 +9,8 @@ describe('evaluateRelativePath', () => {
     const path = evaluateRelativePath({ from: '/jobs/123/check-on-status', to: '../get-this-job' });
     expect(path).toEqual('/jobs/123/get-this-job');
   });
+  it('should correctly evaluate a relative path that builds upon root path', () => {
+    const path = evaluateRelativePath({ from: '/', to: './get-this-job' });
+    expect(path).toEqual('/get-this-job');
+  });
 });

@@ -59,4 +59,14 @@ describe('updateUrl', () => {
     });
     expect(url).toEqual('https://example.com/jobs/123/check-out');
   });
+  it('should not produce double forward slashes in the path if updating url from root path', () => {
+    const url = updateUrl({
+      from: 'https://example.com/',
+      with: {
+        path: './check-out', // notice that this is a relative path
+      },
+    });
+    expect(url).not.toContain('example.com//check-out');
+    expect(url).toEqual('https://example.com/check-out');
+  });
 });
