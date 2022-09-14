@@ -33,10 +33,18 @@ export const updateUrl = ({
   with: requestedChanges,
 }: {
   from: string;
-  with: { path?: string; queryParams?: Record<string, string | undefined>; pathParams?: Record<string, string> };
+  with: {
+    origin?: string;
+    path?: string;
+    queryParams?: Record<string, string | undefined>;
+    pathParams?: Record<string, string>;
+  };
 }) => {
   // parse the original url into query-params and path
-  const { origin, path: originalPath, queryParams: originalQueryParams } = parseUrl(originalUrl);
+  const { origin: originalOrigin, path: originalPath, queryParams: originalQueryParams } = parseUrl(originalUrl);
+
+  // define the origin to use, if any
+  const origin = requestedChanges.origin ?? originalOrigin ?? null;
 
   // apply the path change, if one was requested
   const path = (() => {
