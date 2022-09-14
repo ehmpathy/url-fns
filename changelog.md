@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.2](https://www.github.com/uladkasach/url-fns/compare/v1.1.1...v1.1.2) (2022-09-14)
+
+
+### Bug Fixes
+
+* **paths:** ensure paths relative to root are evaluated correctly ([c10eee8](https://www.github.com/uladkasach/url-fns/commit/c10eee8d4d6620bb56f22d286a2c214794dbbff0))
+
 ### [1.1.1](https://www.github.com/uladkasach/url-fns/compare/v1.1.0...v1.1.1) (2022-04-14)
 
 
