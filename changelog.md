@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/uladkasach/url-fns/compare/v1.1.2...v1.2.0) (2022-09-14)
+
+
+### Features
+
+* **update:** enable updating the origin of a url ([2c83ff8](https://www.github.com/uladkasach/url-fns/commit/2c83ff82d4c44435d027a2c48b58e53d0b272d36))
+
 ### [1.1.2](https://www.github.com/uladkasach/url-fns/compare/v1.1.1...v1.1.2) (2022-09-14)
 
 
