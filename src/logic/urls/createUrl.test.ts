@@ -34,4 +34,12 @@ describe('createUrl', () => {
     });
     expect(url).toEqual('https://yourdomain.com/jobs/123/get-this-job?variant=b');
   });
+  it('should be able to build url with hyphens in origin correctly', () => {
+    const url = createUrl({
+      origin: 'https://appleid.cdn-apple.com',
+      path: '/appleid/button/logo',
+      queryParams: { size: '42' },
+    });
+    expect(url).toEqual('https://appleid.cdn-apple.com/appleid/button/logo?size=42');
+  });
 });

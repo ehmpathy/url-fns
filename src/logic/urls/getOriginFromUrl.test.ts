@@ -9,4 +9,8 @@ describe('getOriginFromUrl', () => {
     const origin = getOriginFromUrl('/get-quotes/for');
     expect(origin).toEqual(null);
   });
+  it('should be possible to get the origin from an origin with hyphens', () => {
+    const origin = getOriginFromUrl('https://example-origin.com/get-quotes/for');
+    expect(origin).toEqual('https://example-origin.com');
+  });
 });
