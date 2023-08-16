@@ -39,9 +39,13 @@ export const updateUrl = ({
     queryParams?: Record<string, string | undefined>;
     pathParams?: Record<string, string>;
   };
-}) => {
+}): string => {
   // parse the original url into query-params and path
-  const { origin: originalOrigin, path: originalPath, queryParams: originalQueryParams } = parseUrl(originalUrl);
+  const {
+    origin: originalOrigin,
+    path: originalPath,
+    queryParams: originalQueryParams,
+  } = parseUrl(originalUrl);
 
   // define the origin to use, if any
   const origin = requestedChanges.origin ?? originalOrigin ?? null;
@@ -55,8 +59,14 @@ export const updateUrl = ({
     if (requestedChanges.path.startsWith('/')) return requestedChanges.path;
 
     // if a relative path change was requested, then apply the relative change
-    if (requestedChanges.path.startsWith('./') || requestedChanges.path.startsWith('../'))
-      return evaluateRelativePath({ from: originalPath, to: requestedChanges.path });
+    if (
+      requestedChanges.path.startsWith('./') ||
+      requestedChanges.path.startsWith('../')
+    )
+      return evaluateRelativePath({
+        from: originalPath,
+        to: requestedChanges.path,
+      });
 
     // otherwise, fail fast that this is not a supported operation
     throw new Error(
@@ -65,10 +75,16 @@ export const updateUrl = ({
   })();
 
   // replace each path parameter with its value
-  const pathWithPathParametersHydrated = hydratePathParameters({ path, pathParams: requestedChanges.pathParams ?? {} });
+  const pathWithPathParametersHydrated = hydratePathParameters({
+    path,
+    pathParams: requestedChanges.pathParams ?? {},
+  });
 
   // add the query params
-  const fullQueryParams = { ...originalQueryParams, ...requestedChanges.queryParams };
+  const fullQueryParams = {
+    ...originalQueryParams,
+    ...requestedChanges.queryParams,
+  };
   const stringifiedFullQueryParams = stringifyQueryParams(fullQueryParams);
   const pathWithAllParameters = stringifiedFullQueryParams
     ? `${pathWithPathParametersHydrated}?${stringifiedFullQueryParams}`

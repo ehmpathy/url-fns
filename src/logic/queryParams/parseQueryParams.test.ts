@@ -11,7 +11,8 @@ describe('parseQueryParams', () => {
     );
     expect(parsedQueryParams).toEqual({
       email: 'bobs@youruncle.com',
-      message: 'today was a good day; tomorrow, though! $l@y  !@#$%^&*+()_. tomorrow = awesome`',
+      message:
+        'today was a good day; tomorrow, though! $l@y  !@#$%^&*+()_. tomorrow = awesome`',
     });
   });
   it('should decode `+` aliased spaces from url correctly', () => {

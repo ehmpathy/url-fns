@@ -11,9 +11,18 @@ import { removeForwardSlashPrefix } from './removeForwardSlashPrefix';
  * expect(url).toEqual('/jobs/1234/get-this-job');
  * ```
  */
-export const evaluateRelativePath = ({ from, to }: { from: string; to: string }) => {
+export const evaluateRelativePath = ({
+  from,
+  to,
+}: {
+  from: string;
+  to: string;
+}): string => {
   // assert that the `from` path is an absolute path (i.e., starts with `/`)
-  if (!from.startsWith('/')) throw new Error(`evaluateRelativePath 'from' argument must be an absolute path. should start with '/', got '${from}'`);
+  if (!from.startsWith('/'))
+    throw new Error(
+      `evaluateRelativePath 'from' argument must be an absolute path. should start with '/', got '${from}'`,
+    );
 
   // now evaluate the url with the Url object
   const placeholderOrigin = 'https://test.com'; // an origin is required to work w/ the URL class
@@ -23,6 +32,8 @@ export const evaluateRelativePath = ({ from, to }: { from: string; to: string })
   ]
     .filter((val) => !!val) // filter out empty strings (for example, if absolute path was root)
     .join('/'); // join the absolute and relative paths together
-  const evaluatedUrl = new URL(`${placeholderOrigin}/${combinedAbsoluteAndRelativePathExpression}`);
+  const evaluatedUrl = new URL(
+    `${placeholderOrigin}/${combinedAbsoluteAndRelativePathExpression}`,
+  );
   return evaluatedUrl.pathname;
 };

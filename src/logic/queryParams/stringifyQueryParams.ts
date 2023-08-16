@@ -9,8 +9,14 @@
  * expect(stringifiedQueryParams).toEqual('variant=b&focus=title');
  * ```
  */
-export const stringifyQueryParams = (queryParams: Record<string, string | undefined>) => {
-  const queryParamsWithoutUndefinedValues: Record<string, string> = JSON.parse(JSON.stringify(queryParams));
-  const parts = Object.entries(queryParamsWithoutUndefinedValues).map(([key, value]) => `${key}=${encodeURIComponent(value)}`);
+export const stringifyQueryParams = (
+  queryParams: Record<string, string | undefined>,
+): string => {
+  const queryParamsWithoutUndefinedValues: Record<string, string> = JSON.parse(
+    JSON.stringify(queryParams),
+  );
+  const parts = Object.entries(queryParamsWithoutUndefinedValues).map(
+    ([key, value]) => `${key}=${encodeURIComponent(value)}`,
+  );
   return parts.join('&');
 };

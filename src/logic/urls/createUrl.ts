@@ -29,19 +29,26 @@ export const createUrl = ({
   path: string;
   pathParams?: Record<string, string>;
   queryParams?: Record<string, string>;
-}) => {
+}): string => {
   // replace each path parameter with its value
-  const pathWithPathParametersHydrate = hydratePathParameters({ path, pathParams });
+  const pathWithPathParametersHydrate = hydratePathParameters({
+    path,
+    pathParams,
+  });
 
   // append the query parameters, if any were defined
   const stringifiedQueryParams = stringifyQueryParams(queryParams);
-  const pathWithAllParameters = stringifiedQueryParams ? `${pathWithPathParametersHydrate}?${stringifiedQueryParams}` : pathWithPathParametersHydrate;
+  const pathWithAllParameters = stringifiedQueryParams
+    ? `${pathWithPathParametersHydrate}?${stringifiedQueryParams}`
+    : pathWithPathParametersHydrate;
 
   // add the origin if requested
   if (origin) {
     const foundOrigin = getOriginFromUrl(origin);
     if (foundOrigin !== origin)
-      throw new Error(`createUrl origin argument was invalid. should be something like 'https://subdomain.yourdomain.com', got '${origin}'`);
+      throw new Error(
+        `createUrl origin argument was invalid. should be something like 'https://subdomain.yourdomain.com', got '${origin}'`,
+      );
   }
   const pathReadyForUrl = removeForwardSlashPrefix(pathWithAllParameters); // strip the leading `/` if it exists
   const url = origin ? `${origin}/${pathReadyForUrl}` : `/${pathReadyForUrl}`;

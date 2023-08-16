@@ -7,4 +7,5 @@
  * expect(path).toEqual('jobs/123');
  * ```
  */
-export const removeForwardSlashPrefix = (path: string) => path.replace(/^\//, '');
+export const removeForwardSlashPrefix = (path: string): string =>
+  path.replace(/^\//, '');

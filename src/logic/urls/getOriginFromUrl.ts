@@ -5,8 +5,9 @@
  * - `https://yourdomain.com/some/path` => `https://yourdomain.com`
  * - `/some/path` => null
  */
-export const getOriginFromUrl = (url: string) => {
-  const [match] = new RegExp(/^https?:\/\/(?:([\w-]+)\.)+([\w-]+)(?::\d+)?/).exec(url) ?? [];
+export const getOriginFromUrl = (url: string): string | null => {
+  const [match] =
+    new RegExp(/^https?:\/\/(?:([\w-]+)\.)+([\w-]+)(?::\d+)?/).exec(url) ?? [];
   if (!match) return null;
   return match;
 };

@@ -1,31 +1,27 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es6",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "allowJs": true,
+    "declaration": true,
+    "importsNotUsedAsValues": "remove",
+    "noPropertyAccessFromIndexSignature": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "exactOptionalPropertyTypes": false,
+    "noImplicitOverride": false,
+    "resolveJsonModule": true,
     "sourceMap": true,
     "outDir": "dist",
-    "strictPropertyInitialization": false,
+    "target": "es6",
     "lib": [
-      "es2019",
-      "es7",
-      "esnext.asynciterable",
-      "dom"
+      "DOM"
     ]
   },
-  "filesGlob": [
-    "src/**/*.ts"
+  "extends": "@tsconfig/node-lts-strictest/tsconfig.json",
+  "include": [
+    "**/*.ts"
   ],
   "exclude": [
     "dist",
     "coverage",
     "node_modules"
-  ],
-  "atom": {
-    "rewriteTsconfig": false
-  }
+  ]
 }

@@ -48,7 +48,9 @@ describe('updateUrl', () => {
         },
       },
     });
-    expect(url).toEqual('https://example.com/jobs/123/learn-more?variant=b&focus=title');
+    expect(url).toEqual(
+      'https://example.com/jobs/123/learn-more?variant=b&focus=title',
+    );
   });
   it('should be able to update a url without query params', () => {
     const url = updateUrl({
@@ -79,7 +81,9 @@ describe('updateUrl', () => {
         },
       },
     });
-    expect(url).toEqual('https://example.com/jobs/123/get-this-job?referral-code=821&focus=title');
+    expect(url).toEqual(
+      'https://example.com/jobs/123/get-this-job?referral-code=821&focus=title',
+    );
   });
   it('should be able to update the origin of a url', () => {
     const url = updateUrl({
@@ -92,6 +96,8 @@ describe('updateUrl', () => {
         },
       },
     });
-    expect(url).toEqual('https://different.com/some/new/path?referral-code=821&focus=title');
+    expect(url).toEqual(
+      'https://different.com/some/new/path?referral-code=821&focus=title',
+    );
   });
 });

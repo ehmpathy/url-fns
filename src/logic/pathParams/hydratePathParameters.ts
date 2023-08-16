@@ -8,10 +8,25 @@ const escapeRegExp = (text: string) => {
 /**
  * hydrates the path parameters in a path by replacing each parameter found in the path with its defined value
  */
-export const hydratePathParameters = ({ path, pathParams }: { path: string; pathParams: Record<string, string> }) => {
-  return Object.entries(pathParams).reduce((pathNow, [pathParameterName, pathParameterValue]) => {
-    return pathNow
-      .replace(new RegExp(`/:${escapeRegExp(pathParameterName)}/`, 'g'), `/${pathParameterValue}/`)
-      .replace(new RegExp(`/:${escapeRegExp(pathParameterName)}$`, 'g'), `/${pathParameterValue}`);
-  }, path);
+export const hydratePathParameters = ({
+  path,
+  pathParams,
+}: {
+  path: string;
+  pathParams: Record<string, string>;
+}): string => {
+  return Object.entries(pathParams).reduce(
+    (pathNow, [pathParameterName, pathParameterValue]) => {
+      return pathNow
+        .replace(
+          new RegExp(`/:${escapeRegExp(pathParameterName)}/`, 'g'),
+          `/${pathParameterValue}/`,
+        )
+        .replace(
+          new RegExp(`/:${escapeRegExp(pathParameterName)}$`, 'g'),
+          `/${pathParameterValue}`,
+        );
+    },
+    path,
+  );
 };

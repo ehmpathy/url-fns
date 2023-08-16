@@ -4,12 +4,22 @@ import { getOriginFromUrl } from './getOriginFromUrl';
 /**
  * reads a url string and parses it into path and query params
  */
-export const parseUrl = (url: string) => {
+export const parseUrl = (
+  url: string,
+): {
+  origin: string | null;
+  path: string;
+  queryParams: Record<string, string>;
+  hash: string | null;
+} => {
   // grab the hash, if one exists; do this first since hashes are at the end of urls (https://stackoverflow.com/a/34772568/3068233)
   const [beforeHash, hash] = url.split('#');
 
   // split url into path and query params
-  const [originAndPath, queryParamsString] = beforeHash.split('?');
+  const [originAndPath, queryParamsString] = beforeHash!.split('?') as [
+    string,
+    string | undefined,
+  ];
 
   // parse the query params
   const queryParams = parseQueryParams(queryParamsString ?? '');
