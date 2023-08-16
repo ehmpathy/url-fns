@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/ehmpathy/url-fns/compare/v1.2.0...v1.2.1) (2023-08-16)
+
+
+### Bug Fixes
+
+* **origin:** support hyphens in origins ([5c9613c](https://github.com/ehmpathy/url-fns/commit/5c9613ca9b057ef2fb83d1ab108a9466725ddeb3))
+* **practs:** bump best practs for faster cicd ([773e50b](https://github.com/ehmpathy/url-fns/commit/773e50b01bf95fbf733db3f67ad57408992ed05b))
+
 ## [1.2.0](https://www.github.com/uladkasach/url-fns/compare/v1.1.2...v1.2.0) (2022-09-14)
 
 

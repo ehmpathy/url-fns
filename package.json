@@ -2,7 +2,7 @@
   "name": "url-fns",
   "author": "ehmpathy",
   "description": "Easily define and manipulate urls with relative paths, query parameters, and path parameters",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "repository": "ehmpathy/url-fns",
   "homepage": "https://github.com/ehmpathy/url-fns",
   "keywords": [
